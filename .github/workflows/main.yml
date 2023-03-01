@@ -140,7 +140,9 @@ jobs:
         with:
           submodules: true
       - name: Install deps
-        run: pip install ledgerblue==0.1.42
+        run: |
+          pip install --user --upgrade setuptools
+          pip install ledgerblue
 
       - name: Build NanoS
         shell: bash -l {0}
@@ -152,7 +154,8 @@ jobs:
       - name: Set tag
         id: nanos
         run: |
-          pip install ledgerblue==0.1.42
+          pip install --user --upgrade setuptools
+          pip install ledgerblue
           echo ::set-output name=tag_name::$(./app/pkg/installer_nanos.sh version)
       - name: Create Release
         id: create_release
@@ -182,7 +185,9 @@ jobs:
         with:
           submodules: true
       - name: Install deps
-        run: pip install ledgerblue==0.1.42
+        run: |
+          pip install --user --upgrade setuptools
+          pip install ledgerblue
 
       - name: Build NanoSP
         shell: bash -l {0}
@@ -194,7 +199,8 @@ jobs:
       - name: Set tag
         id: nanosp
         run: |
-          pip install ledgerblue==0.1.42
+          pip install --user --upgrade setuptools
+          pip install ledgerblue
           echo ::set-output name=tag_name::$(./app/pkg/installer_nanos_plus.sh version)
       - name: Update Release
         id: update_release
