@@ -28,9 +28,7 @@ jobs:
         with:
           submodules: true
       - name: Install deps
-        run: |
-          pip install --user --upgrade setuptools
-          pip install ledgerblue
+        run: pip install ledgerblue~=0.1.45
 
       - name: Build NanoS
         shell: bash -l {0}
@@ -42,8 +40,7 @@ jobs:
       - name: Set tag
         id: nanos
         run: |
-          pip install --user --upgrade setuptools
-          pip install ledgerblue
+          pip install ledgerblue~=0.1.45
           echo ::set-output name=tag_name::$(./app/pkg/installer_nanos.sh version)
       - name: Create Release
         id: create_release
