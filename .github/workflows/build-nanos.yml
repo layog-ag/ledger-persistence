@@ -30,7 +30,7 @@ jobs:
       - name: Install deps
         run: |
           sudo apt-get update -y
-          sudo apt-get upgrade -y
+          sudo apt-get dist-upgrade -y
           pip install ledgerblue~=0.1.45
 
       - name: Build NanoS
